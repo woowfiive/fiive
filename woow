@@ -1,0 +1,21 @@
+def calculate_ma(data, window):
+    ma_values = []
+    for i in range(len(data)):
+        if i >= window:
+            window_data = data[i-window:i]
+            ma = sum(window_data) / window
+            ma_values.append(ma)
+    return ma_values
+
+# Data harga kripto
+crypto_prices = [50, 55, 60, 58, 62, 65, 70, 75, 72, 68, 70, 75, 73, 70, 72, 68, 65, 60, 55, 50]
+
+# Menghitung MA 10-day
+ma_10 = calculate_ma(crypto_prices, 10)
+
+# Menghitung MA 20-day
+ma_20 = calculate_ma(crypto_prices, 20)
+
+# Menampilkan hasil
+print("10-day Moving Average (MA):", ma_10)
+print("20-day Moving Average (MA):", ma_20)
